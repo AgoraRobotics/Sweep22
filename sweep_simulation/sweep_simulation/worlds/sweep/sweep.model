@@ -1,0 +1,330 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+    <model name="sweep"> 
+      <pose>0.0 0.0 0.1 0.0 0.0 0.0</pose>
+
+      <link name="base_footprint"/>
+
+      <link name="base_link">
+
+        <inertial>
+          <pose>0 0 0.30 0 0 0</pose>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>1.0</mass>
+        </inertial>
+
+        <collision name="base_collision">
+          <pose>0 0 0.30 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.94 0.58 0.43</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="base_visual">
+          <pose>0 0 0.30 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.94 0.58 0.43</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+
+  
+
+
+      <link name="fata">
+        <inertial>
+          <pose>0.65 0 0.165 0 0 0</pose>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.125</mass>
+        </inertial>
+
+        <collision name="fata_collision">
+          <pose>0.65 0 0.165 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.36 0.58 0.16</size>
+            </box>
+          </geometry>
+        </collision>
+
+        <visual name="fata_visual">
+          <pose>0.65 0 0.165 0 0 0</pose>
+          <geometry>
+            <box>
+              <size>0.36 0.58 0.16</size>
+            </box>
+          </geometry>
+        </visual>
+      </link>
+
+
+
+      <link name="wheel_left_link">
+
+        <inertial>
+          <pose>-0.32 0.26 0.0 -1.57 0 0</pose>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.1</mass>
+        </inertial>
+
+        <collision name="wheel_left_collision">
+          <pose>-0.32 0.26 0.0 -1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.055</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <!-- This friction pamareter don't contain reliable data!! -->
+            <friction>
+              <ode>
+                <mu>100000.0</mu>
+                <mu2>100000.0</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0.0</slip1>
+                <slip2>0.0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+5</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+
+        <visual name="wheel_left_visual">
+          <pose>-0.32 0.26 0.0 -1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.055</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+
+      <link name="wheel_right_link">
+
+        <inertial>
+          <pose>-0.32 -0.26 0.0 1.57 0 0</pose>
+          <inertia>
+            <ixx>0.001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.001</izz>
+          </inertia>
+          <mass>0.1</mass>
+        </inertial>
+
+        <collision name="wheel_right_collision">
+          <pose>-0.32 -0.26 0.0 1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.055</length>
+            </cylinder>
+          </geometry>
+          <surface>
+            <!-- This friction pamareter don't contain reliable data!! -->
+            <friction>
+              <ode>
+                <mu>100000.0</mu>
+                <mu2>100000.0</mu2>
+                <fdir1>0 0 0</fdir1>
+                <slip1>0.0</slip1>
+                <slip2>0.0</slip2>
+              </ode>
+            </friction>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+5</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+
+        <visual name="wheel_right_visual">
+          <pose>-0.32 -0.26 0.0 1.57 0 0</pose>
+          <geometry>
+            <cylinder>
+              <radius>0.08</radius>
+              <length>0.055</length>
+            </cylinder>
+          </geometry>
+        </visual>
+      </link>
+    
+
+      <link name='caster_front_link'>
+        <pose>0.60 0 0 0 0 0</pose>
+        <inertial>
+          <mass>0.001</mass>
+          <inertia>
+            <ixx>0.00001</ixx>
+            <ixy>0.000</ixy>
+            <ixz>0.000</ixz>
+            <iyy>0.00001</iyy>
+            <iyz>0.000</iyz>
+            <izz>0.00001</izz>
+          </inertia>
+        </inertial>
+        <collision name='collision'>
+          <geometry>
+            <sphere>
+              <radius>0.08</radius>
+            </sphere>
+          </geometry>
+          <surface>
+            <contact>
+              <ode>
+                <soft_cfm>0</soft_cfm>
+                <soft_erp>0.2</soft_erp>
+                <kp>1e+5</kp>
+                <kd>1</kd>
+                <max_vel>0.01</max_vel>
+                <min_depth>0.001</min_depth>
+              </ode>
+            </contact>
+          </surface>
+        </collision>
+
+        <visual name="caster_visual">
+          <geometry>
+            <sphere>
+              <radius>0.08</radius>
+            </sphere>
+          </geometry>
+        </visual>        
+      </link>
+
+
+
+
+      <joint name="base_joint" type="fixed">
+        <parent>base_footprint</parent>
+        <child>base_link</child>
+        <pose>0.0 0.0 0.0 0 0 0</pose>
+      </joint>
+
+      <joint name="wheel_left_joint" type="revolute">
+        <parent>base_link</parent>
+        <child>wheel_left_link</child>
+        <pose>-0.32 -0.26 0 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+      <joint name="wheel_right_joint" type="revolute">
+        <parent>base_link</parent>
+        <child>wheel_right_link</child>
+        <pose>-0.32 0.26 0 0 0 0</pose>
+        <axis>
+          <xyz>0 1 0</xyz>
+        </axis>
+      </joint>
+
+      <joint name='caster_front_joint' type='ball'>
+        <parent>base_link</parent>
+        <child>caster_front_link</child>
+      </joint>
+
+
+      <joint name="fata_joint" type="fixed">
+        <parent>base_link</parent>
+        <child>fata</child>
+        <pose>-0.064 0 0.121 0 0 0</pose>
+        <axis>
+          <xyz>0 0 1</xyz>
+        </axis>
+      </joint>
+
+
+      <plugin name="turtlebot3_diff_drive" filename="libgazebo_ros_diff_drive.so">
+
+        <ros>
+          <!-- <namespace>/tb3</namespace> -->
+          <!--since gazebo_plugins publish tf topic in global namespace /tf only and it
+            cannot be remapped like (namespace/tf) through launch arguments -->
+          <remapping>/tf:=tf</remapping>
+        </ros>
+
+        <update_rate>30</update_rate>
+
+        <!-- wheels -->
+        <left_joint>wheel_left_joint</left_joint>
+        <right_joint>wheel_right_joint</right_joint>
+
+
+        <!-- kinematics -->
+        <wheel_separation>0.52</wheel_separation>
+        <wheel_diameter>0.08</wheel_diameter>
+
+        <!-- limits -->
+        <max_wheel_torque>20</max_wheel_torque>
+        <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+        <command_topic>cmd_vel</command_topic>
+
+        <!-- output -->
+        <publish_odom>true</publish_odom>
+        <publish_odom_tf>true</publish_odom_tf>
+        <publish_wheel_tf>false</publish_wheel_tf>
+
+        <odometry_topic>odom</odometry_topic>
+        <odometry_frame>odom</odometry_frame>
+        <robot_base_frame>base_footprint</robot_base_frame>
+
+      </plugin>
+
+      <plugin name="turtlebot3_joint_state" filename="libgazebo_ros_joint_state_publisher.so">
+        <ros>
+          <!-- <namespace>/tb3</namespace> -->
+            <remapping>~/out:=joint_states</remapping>
+        </ros>
+        <update_rate>30</update_rate>
+        <joint_name>wheel_left_joint</joint_name>
+        <joint_name>wheel_right_joint</joint_name>
+      </plugin>
+
+    </model>
+</sdf>
