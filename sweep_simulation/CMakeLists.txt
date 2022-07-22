@@ -43,10 +43,6 @@ install(DIRECTORY launch models worlds urdf
   DESTINATION share/${PROJECT_NAME}/
 )
 
-install(DIRECTORY include/
-  DESTINATION include/
-)
-
 
 ament_export_dependencies(gazebo_ros_pkgs)
 

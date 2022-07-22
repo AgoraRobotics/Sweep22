@@ -15,9 +15,6 @@ def generate_launch_description():
     bringup_dir = get_package_share_directory('sweep_simulation')
     launch_dir = os.path.join(bringup_dir, 'launch')
 
-    bringup_dir2 = get_package_share_directory('nav2_bringup')
-    launch_dir_nav2 = os.path.join(bringup_dir2, 'launch')
-
     # Create the launch configuration variables
 
     namespace = LaunchConfiguration('namespace')
@@ -156,14 +153,6 @@ def generate_launch_description():
             '-x', pose['x'], '-y', pose['y'], '-z', pose['z'],
             '-R', pose['R'], '-P', pose['P'], '-Y', pose['Y']])
 
-    rviz_cmd = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(
-            os.path.join(launch_dir_nav2, 'rviz_launch.py')),
-        condition=IfCondition(use_rviz),
-        launch_arguments={'namespace': namespace,
-                          'use_namespace': use_namespace,
-                          'rviz_config': rviz_config_file}.items())
-
 
     # Create the launch description and populate
     ld = LaunchDescription()
@@ -175,9 +164,7 @@ def generate_launch_description():
     ld.add_action(declare_params_file_cmd)
     ld.add_action(declare_autostart_cmd)
 
-    ld.add_action(declare_rviz_config_file_cmd)
     ld.add_action(declare_use_robot_state_pub_cmd)
-    ld.add_action(declare_use_rviz_cmd)
     ld.add_action(declare_robot_name_cmd)
     ld.add_action(declare_world_cmd)
     ld.add_action(declare_robot_sdf_cmd)
@@ -189,8 +176,6 @@ def generate_launch_description():
     ld.add_action(start_gazebo_spawner_cmd)
 
     # Add the actions to launch all of the navigation nodes
-    ld.add_action(start_robot_state_publisher_cmd)
-    ld.add_action(rviz_cmd)
-    
+    ld.add_action(start_robot_state_publisher_cmd)    
 
     return ld

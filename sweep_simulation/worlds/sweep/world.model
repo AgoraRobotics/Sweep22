@@ -46,7 +46,7 @@
     <model name="turtlebot3_world">
       <static>1</static>
       <include>
-        <uri>file:///home/ros2/sweep/install/sweep_simulation/share/sweep_simulation/models/sweep_world</uri>
+        <uri>file:///home/muv/sweep/install/sweep_simulation/share/sweep_simulation/models/sweep_world</uri>
       </include>
     </model>
 
