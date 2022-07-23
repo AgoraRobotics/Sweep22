@@ -1,0 +1,100 @@
+<robot name="test_robot">
+ 
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.94 0.58 0.43"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.30"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+ 
+  <link name="fata">
+    <visual>
+      <geometry>
+        <box size="0.36 0.58 0.16"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.0"/>
+      <material name="white">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+  </link>
+ 
+ 
+  <joint name="base_to_right_leg" type="fixed">
+    <parent link="base_link"/>
+    <child link="fata"/>
+    <origin xyz="0.65 0 0.165"/>
+  </joint>
+ 
+ 
+  <link name="lwheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.055" radius="0.08"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+ 
+  <joint name="base_to_lwheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="lwheel"/>
+    <origin xyz="-0.32 0.26 0.0" rpy="1.5708 0 0"/>
+  </joint>
+ 
+  <link name="rwheel">
+    <visual>
+      <geometry>
+        <cylinder length="0.055" radius="0.08"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <material name="black">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+ 
+  <joint name="base_to_rwheel" type="fixed">
+    <parent link="base_link"/>
+    <child link="rwheel"/>
+    <origin xyz="-0.32 -0.26 0" rpy="-1.5708 0 0"/>
+  </joint>
+ 
+ 
+ 
+  <link name="caster_front_link">
+    <visual>
+      <origin rpy="1.57079632679 0 0" xyz="0 0.0 0"/>
+      <geometry>
+        <sphere radius="0.08"/>
+      </geometry>
+      <material name="Black"/>
+    </visual>
+    <collision>
+      <geometry>
+        <sphere radius="0.08"/>
+      </geometry>
+      <origin rpy="1.57079632679 0 0" xyz="0 0.0 0"/>
+    </collision>
+    <inertial>
+      <mass value="0.5"/>
+      <origin xyz="0 0 0"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+ 
+    <joint name="caster_front_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="caster_front_link"/>
+    <origin rpy="-1.57079632679 0 0" xyz="0.70 0.0 0.0"/>
+  </joint>
+ 
+</robot>
